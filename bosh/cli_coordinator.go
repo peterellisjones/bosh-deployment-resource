@@ -49,7 +49,7 @@ func (c CLICoordinator) GlobalOpts(proxyAddr string) boshcmd.BoshOpts {
 	}
 
 	if proxyAddr != "" {
-		proxyAddr = fmt.Sprintf("socks5://%s", proxyAddr)
+		proxyAddr = fmt.Sprintf("ssh+socks5://%s", proxyAddr)
 		os.Setenv("BOSH_ALL_PROXY", proxyAddr)
 		globalOpts.SSH.GatewayFlags.SOCKS5Proxy = proxyAddr
 		globalOpts.SCP.GatewayFlags.SOCKS5Proxy = proxyAddr
